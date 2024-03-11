@@ -19,6 +19,7 @@ class CreateAulas extends Migration
             $table -> string('planta',45);
             $table -> string ('capacidad',45);
             $table -> string('caracteristicas',45);
+            $table->timestamps();
         });
     }
 

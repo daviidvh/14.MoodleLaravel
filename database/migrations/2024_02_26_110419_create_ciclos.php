@@ -17,6 +17,7 @@ class CreateCiclos extends Migration
             $table->id();
             $table -> string('nombre',45);
             $table -> string('descripcion',45);
+            $table->timestamps();
         });
     }
 

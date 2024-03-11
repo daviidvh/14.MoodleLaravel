@@ -17,6 +17,7 @@ class CreateCiclosHasAsignaturas extends Migration
 
             $table -> bigInteger('ciclos_id')->unsigned();
             $table -> bigInteger('asignaturas_id')->unsigned();
+            $table->timestamps();
 
             $table->foreign('ciclos_id')->references('id')->on('ciclos');
             $table->foreign('asignaturas_id')->references('id')->on('asignaturas');

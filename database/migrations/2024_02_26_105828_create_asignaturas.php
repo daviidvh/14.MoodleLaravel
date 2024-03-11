@@ -17,6 +17,8 @@ class CreateAsignaturas extends Migration
             $table->id();
             $table -> string('nombre',45);
             $table -> string('contenidos',45);
+            $table->timestamp('last_used_at')->nullable();
+            $table->timestamps();
         });
     }
 

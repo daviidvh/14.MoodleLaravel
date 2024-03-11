@@ -18,6 +18,7 @@ class CreateEntregas extends Migration
             $table ->  string ('nombre',45);
             $table -> date ('vencimiento');
             $table -> bigInteger('grupos_id')->unsigned();
+            $table->timestamps();
 
             $table->foreign('grupos_id')->references('id')->on('grupos');
 

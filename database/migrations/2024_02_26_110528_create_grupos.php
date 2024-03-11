@@ -20,6 +20,7 @@ class CreateGrupos extends Migration
             $table -> bigInteger('aulas_id')->unsigned();
             $table -> bigInteger('cursos_id')->unsigned();
             $table -> bigInteger('ciclos_id')->unsigned();
+            $table->timestamps();
 
             $table->foreign('aulas_id')->references('id')->on('aulas');
             $table->foreign('cursos_id')->references('id')->on('cursos');

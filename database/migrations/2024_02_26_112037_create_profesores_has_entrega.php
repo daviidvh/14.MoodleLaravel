@@ -17,6 +17,7 @@ class CreateProfesoresHasEntrega extends Migration
 
             $table -> bigInteger('profesores_id')->unsigned();
             $table -> bigInteger('entregas_id')->unsigned();
+            $table->timestamps();
 
             $table->foreign('profesores_id')->references('id')->on('profesores');
             $table->foreign('entregas_id')->references('id')->on('entregas');

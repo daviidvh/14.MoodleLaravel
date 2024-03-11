@@ -17,7 +17,8 @@ class CreateAlumnosHasGrupos extends Migration
             $table -> bigInteger('alumnos_id')->unsigned();
             $table -> bigInteger('grupos_id')->unsigned();
             $table -> bigInteger('asignaturas_id')->unsigned();
-            
+            $table->timestamps();
+
             
             $table->foreign('alumnos_id')->references('id')->on('profesores');
             $table->foreign('grupos_id')->references('id')->on('grupos');

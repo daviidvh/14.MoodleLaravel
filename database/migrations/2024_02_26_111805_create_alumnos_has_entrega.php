@@ -18,6 +18,7 @@ class CreateAlumnosHasEntrega extends Migration
             $table -> integer ('calificacion');
             $table -> bigInteger('alumnos_id')->unsigned();
             $table -> bigInteger('entregas_id')->unsigned();
+            $table->timestamps();
 
             $table->foreign('alumnos_id')->references('id')->on('alumnos');
             $table->foreign('entregas_id')->references('id')->on('entregas');

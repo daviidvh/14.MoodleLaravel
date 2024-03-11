@@ -20,6 +20,7 @@ class CreateProfesores extends Migration
             $table -> string('dni',9);
             $table -> date('fecha_nacimiento');
             $table -> string('telefono',9);
+            $table->timestamps();
         });
     }
 

@@ -21,6 +21,7 @@ class CreateAlumnos extends Migration
             $table -> date('fecha_nacimiento');
             $table -> string('numero_matricula',15);
             $table -> string('email',45);
+            $table->timestamps();
         });
     }
 
