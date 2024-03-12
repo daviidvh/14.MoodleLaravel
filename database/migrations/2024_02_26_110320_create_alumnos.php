@@ -17,10 +17,11 @@ class CreateAlumnos extends Migration
             $table->id();
             $table -> string('nombre',45);
             $table -> string('apellidos',45);
-            $table -> string('dni',9);
+            $table -> char('dni',9)->unique();
             $table -> date('fecha_nacimiento');
             $table -> string('numero_matricula',15);
             $table -> string('email',45);
+            $table -> string('password',100);
             $table->timestamps();
         });
     }
