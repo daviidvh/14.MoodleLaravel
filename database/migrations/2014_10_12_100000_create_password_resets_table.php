@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAsignaturas extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateAsignaturas extends Migration
      */
     public function up()
     {
-        Schema::create('asignaturas', function (Blueprint $table) {
-            $table->id();
-            $table -> string('nombre',60);
-            $table -> string('contenidos',60);
-            $table->timestamp('last_used_at')->nullable();
-            $table->timestamps();
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
         });
     }
 
@@ -29,6 +27,6 @@ class CreateAsignaturas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asignaturas');
+        Schema::dropIfExists('password_resets');
     }
-}
+};

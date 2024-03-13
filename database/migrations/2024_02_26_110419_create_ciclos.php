@@ -16,7 +16,7 @@ class CreateCiclos extends Migration
         Schema::create('ciclos', function (Blueprint $table) {
             $table->id();
             $table -> string('nombre',45);
-            $table -> string('descripcion',45);
+            $table -> string('descripcion',100);
             $table->timestamps();
         });
     }
