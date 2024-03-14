@@ -114,11 +114,5 @@ class EntregaController extends Controller
         // Pasar las entregas asociadas a la vista
         return view('entregas.index', ['entregas' => $asignatura->entregas]);
     }
-<<<<<<< HEAD
-
-
-    
-=======
->>>>>>> 058c1af189ae4bcea1db8dfe7a58033e1818f9e3
 
 }
