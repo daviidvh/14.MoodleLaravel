@@ -88,14 +88,5 @@ class CicloController extends Controller
     }
 
 
-    public function alumnosPorCiclo($cicloId)
-    {
-        // // Obtener los alumnos que pertenecen al ciclo específico
-        // $alumnos = Alumnos::whereHas('ciclos', function ($query) use ($cicloId) {
-        //     $query->where('ciclo_id', $cicloId);
-        // })->get();
-
-        // // Pasar los alumnos a la vista
-        // return view('alumnos.index', ['alumnos' => $alumnos]);
-    }
+  
 }

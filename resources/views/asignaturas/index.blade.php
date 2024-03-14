@@ -6,7 +6,7 @@
     <div class="container">
         <h1>Asignaturas</h1>
         @foreach ($asignaturas as $asignatura)
-            <a href="{{ route('asignatura.show', $asignatura->id) }}" class="card-link">
+            <a href="{{ route('entregas.index', $asignatura->id) }}" class="card-link">
                 <div class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title">{{ $asignatura->nombre }}</h5>

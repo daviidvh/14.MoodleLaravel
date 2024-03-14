@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CicloController;
 use App\Http\Controllers\AsignaturaController;
+use App\Http\Controllers\EntregaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +27,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/ciclos/{ciclo}', [CicloController::class, 'show'])->name('ciclo.show');
     Route::get('/ciclos/{ciclo}/asignaturas', [AsignaturaController::class, 'asignaturasPorCiclo'])->name('asignaturas.por-ciclo');
     Route::get('/asignaturas/{id}', [AsignaturaController::class, 'show'])->name('asignatura.show');
+    Route::get('/asignaturas/{id}/entregas', [EntregaController::class, 'index'])->name('entregas.index');
+    Route::get('/entregas/{entrega}', [EntregaController::class, 'show'])->name('entrega.show');
+    
+
+
 });
 

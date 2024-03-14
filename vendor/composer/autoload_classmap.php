@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\AlumnoHasCicloController' => $baseDir . '/app/Http/Controllers/AlumnoHasCicloController.php',
     'App\\Http\\Controllers\\AsignaturaController' => $baseDir . '/app/Http/Controllers/AsignaturaController.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -28,6 +29,7 @@ return array(
     'App\\Http\\Middleware\\TrustHosts' => $baseDir . '/app/Http/Middleware/TrustHosts.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Models\\AlumnoHasCiclo' => $baseDir . '/app/Models/AlumnoHasCiclo.php',
     'App\\Models\\Alumnos' => $baseDir . '/app/Models/Alumnos.php',
     'App\\Models\\Asignatura' => $baseDir . '/app/Models/Asignatura.php',
     'App\\Models\\Ciclo' => $baseDir . '/app/Models/Ciclo.php',

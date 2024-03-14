@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Entrega;
 use Illuminate\Http\Request;
+use App\Models\Asignatura;
 
 class EntregaController extends Controller
 {
@@ -12,10 +13,18 @@ class EntregaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+    public function index($id)
+{
+    // Obtener la asignatura
+    $asignatura = Asignatura::findOrFail($id);
+
+    // Obtener las entregas asociadas a la asignatura
+    $entregas = $asignatura->entregas;
+
+    // Pasar las entregas y la asignatura a la vista
+    return view('entregas.index', compact('entregas', 'asignatura'));
+}
+
 
     /**
      * Show the form for creating a new resource.
@@ -44,10 +53,15 @@ class EntregaController extends Controller
      * @param  \App\Models\Entrega  $entrega
      * @return \Illuminate\Http\Response
      */
-    public function show(Entrega $entrega)
+    public function show($id)
     {
-        //
+        // Obtener la entrega por su ID
+        $entrega = Entrega::findOrFail($id);
+
+        // Devolver la vista 'entregas.show' con los datos de la entrega
+        return view('entregas.show', ['entrega' => $entrega]);
     }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -82,4 +96,15 @@ class EntregaController extends Controller
     {
         //
     }
+
+
+    public function entregasPorAsignatura($asignaturaId)
+{
+    // Obtener la asignatura específica junto con sus entregas asociadas
+    $asignatura = Asignatura::with('entregas')->findOrFail($asignaturaId);
+
+    // Pasar las entregas asociadas a la vista
+    return view('entregas.index', ['entregas' => $asignatura->entregas]);
+}
+
 }
