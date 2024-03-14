@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Asignatura;
 use Illuminate\Http\Request;
+use App\Models\Ciclo;
 
 class AsignaturaController extends Controller
 {
@@ -81,5 +82,15 @@ class AsignaturaController extends Controller
     public function destroy(Asignatura $asignatura)
     {
         //
+    }
+
+
+    public function asignaturasPorCiclo($cicloId)
+    {
+        // Obtener el ciclo específico junto con sus asignaturas asociadas
+        $ciclo = Ciclo::with('asignaturas')->findOrFail($cicloId);
+
+        // Pasar las asignaturas asociadas a la vista
+        return view('asignaturas.index', ['asignaturas' => $ciclo->asignaturas]);
     }
 }
