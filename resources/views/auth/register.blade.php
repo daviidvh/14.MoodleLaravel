@@ -122,6 +122,17 @@
                             </div>
                         </div>
 
+
+                        <div class="mb-3">
+                            <label for="ciclo_id" class="form-label">Selecciona el ciclo:</label>
+                            <select class="form-select" id="ciclo_id" name="ciclo_id">
+                                @foreach ($ciclos as $ciclo)
+                                    <option value="{{ $ciclo->id }}">{{ $ciclo->nombre }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Ciclo;
+use Illuminate\Http\Request;
 
 use App\Models\Alumnos;
 
@@ -73,6 +75,7 @@ class RegisterController extends Controller
         'password' => Hash::make($data['password']),
     ]);
 
+
     // Crear registro de alumno
     $alumno = Alumnos::create([
 
@@ -82,11 +85,17 @@ class RegisterController extends Controller
         'fecha_nacimiento' => $data['fecha_nacimiento'],
         'numero_matricula' => $data['numero_matricula'],
         'email'=>$data['email'],
-
-
+        'ciclo_id' =>$data['ciclo_id'],
 
     ]);
 
     return $user;
     }
+
+
+    public function showRegistrationForm()
+{
+    $ciclos = Ciclo::all();
+    return view('auth.register', compact('ciclos'));
+}
 }

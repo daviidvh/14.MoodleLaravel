@@ -17,13 +17,13 @@ class Alumnos extends Model
         'numero_matricula',
         'email',
         'password',
+        'ciclo_id',
     ];
 
     protected $hidden = [
         'password',
         'remember_token',
     ];
-
 
     
 
