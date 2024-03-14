@@ -99,12 +99,12 @@ class EntregaController extends Controller
 
 
     public function entregasPorAsignatura($asignaturaId)
-{
-    // Obtener la asignatura específica junto con sus entregas asociadas
-    $asignatura = Asignatura::with('entregas')->findOrFail($asignaturaId);
-
-    // Pasar las entregas asociadas a la vista
-    return view('entregas.index', ['entregas' => $asignatura->entregas]);
-}
+    {
+        // Obtener la asignatura específica junto con sus entregas asociadas
+        $asignatura = Asignatura::with('entregas')->findOrFail($asignaturaId);
+    
+        // Pasar las entregas asociadas a la vista
+        return view('entregas.index', ['entregas' => $asignatura->entregas]);
+    }
 
 }
