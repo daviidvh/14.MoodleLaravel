@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+use App\Models\Alumnos;
+
 class RegisterController extends Controller
 {
     /*
@@ -64,10 +66,27 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+    // Crear usuario
+    $user = User::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+    ]);
+
+    // Crear registro de alumno
+    $alumno = Alumnos::create([
+
+        'nombre' => $data['name'],
+        'apellidos' => $data['apellidos'],
+        'dni'=> $data['dni'],
+        'fecha_nacimiento' => $data['fecha_nacimiento'],
+        'numero_matricula' => $data['numero_matricula'],
+        'email'=>$data['email'],
+
+
+
+    ]);
+
+    return $user;
     }
 }

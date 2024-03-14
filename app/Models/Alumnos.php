@@ -24,4 +24,7 @@ class Alumnos extends Model
         'remember_token',
     ];
 
+
+    
+
 }

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Ciclo;
 use Illuminate\Http\Request;
 
-
 class CicloController extends Controller
 {
     /**
@@ -16,11 +15,7 @@ class CicloController extends Controller
     public function index()
     {
     // Obtener todos los ciclos de la base de datos
-    $ciclos =  
-    Ciclo::all();
-
-    //Ciclo_has_alumno where id=Auth::id get o first
-    //Cargar el modelo ciclo has alumno 
+    $ciclos = Ciclo::all();
 
     // Pasar los ciclos a la vista
     return view('ciclos.index', ['ciclos' => $ciclos]);    }
