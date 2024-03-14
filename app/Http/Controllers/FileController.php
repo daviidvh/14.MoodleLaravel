@@ -30,7 +30,7 @@ class FileController extends Controller
     {
         // 1. Validamos fichero
         $request->validate([
-            'fichero' => 'required|file',
+            'fichero' => 'required|file|mimes:pdf,docx,zip',
         ]);
 
         // 2. Capturamos fichero
