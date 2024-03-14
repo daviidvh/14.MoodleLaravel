@@ -19,9 +19,11 @@ class CreateDocumentos extends Migration
             $table -> string('extension',45);
             $table -> string('ubicacion',45);
             $table -> bigInteger('entregas_id')->unsigned();
+            $table -> bigInteger('user_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('entregas_id')->references('id')->on('entregas');
+            $table->foreign('user_id')->references('id')->on('users');
 
         });
     }

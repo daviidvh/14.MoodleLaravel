@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Entrega;
 use Illuminate\Http\Request;
 use App\Models\Asignatura;
+use App\Models\FileModel;
+use Illuminate\Support\Facades\Auth;
 
 class EntregaController extends Controller
 {
@@ -53,14 +55,20 @@ class EntregaController extends Controller
      * @param  \App\Models\Entrega  $entrega
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($entregaId)
     {
         // Obtener la entrega por su ID
-        $entrega = Entrega::findOrFail($id);
-
-        // Devolver la vista 'entregas.show' con los datos de la entrega
-        return view('entregas.show', ['entrega' => $entrega]);
+        $entrega = Entrega::findOrFail($entregaId);
+    
+        // Recoger todos los ficheros pertenecientes al usuario logueado
+        $userId = Auth::id();
+        $files = FileModel::where('user_id', $userId)
+                          ->where('entregas_id', $entregaId)
+                          ->get();
+            
+        return view('entregas.show', compact('entrega', 'files'));
     }
+    
     
 
     /**
@@ -99,12 +107,15 @@ class EntregaController extends Controller
 
 
     public function entregasPorAsignatura($asignaturaId)
-{
-    // Obtener la asignatura específica junto con sus entregas asociadas
-    $asignatura = Asignatura::with('entregas')->findOrFail($asignaturaId);
+    {
+        // Obtener la asignatura específica junto con sus entregas asociadas
+        $asignatura = Asignatura::with('entregas')->findOrFail($asignaturaId);
+    
+        // Pasar las entregas asociadas a la vista
+        return view('entregas.index', ['entregas' => $asignatura->entregas]);
+    }
 
-    // Pasar las entregas asociadas a la vista
-    return view('entregas.index', ['entregas' => $asignatura->entregas]);
-}
+
+    
 
 }

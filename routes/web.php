@@ -29,8 +29,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/asignaturas/{id}', [AsignaturaController::class, 'show'])->name('asignatura.show');
     Route::get('/asignaturas/{id}/entregas', [EntregaController::class, 'index'])->name('entregas.index');
     Route::get('/entregas/{entrega}', [EntregaController::class, 'show'])->name('entrega.show');
-    
+    Route::post('/store', [App\Http\Controllers\FileController::class, 'store'])->name('files.store');
+    Route::get('/index', [App\Http\Controllers\FileController::class, 'index'])->name('files.index');
+    Route::delete('/destroy/{id}', [App\Http\Controllers\FileController::class, 'destroy'])->name('files.destroy');
+
+
 
 
 });
+
 
